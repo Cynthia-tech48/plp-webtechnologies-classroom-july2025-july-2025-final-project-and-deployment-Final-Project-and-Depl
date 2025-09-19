@@ -20,7 +20,6 @@ if (bookingForm) {
         const phone = document.getElementById('phone').value.trim();
         const serviceType = document.getElementById('service-type').value;
 
-        // Basic validation
         if (name === '' || email === '' || phone === '' || serviceType === '') {
             alert('Please fill in all required fields.');
             return;
@@ -32,7 +31,12 @@ if (bookingForm) {
             return;
         }
 
-        // Display submitted data in the modal
+        const phoneRegex = /^\d{10,}$/;
+        if (!phoneRegex.test(phone)) {
+            alert('Please enter a valid phone number (at least 10 digits).');
+            return;
+        }
+
         document.getElementById('modal-name').textContent = name;
         document.getElementById('modal-email').textContent = email;
         document.getElementById('modal-service').textContent = serviceType;
@@ -41,12 +45,10 @@ if (bookingForm) {
         bookingForm.reset();
     });
 
-    // Close the modal when the user clicks the close button
     closeBtn.onclick = function() {
         modal.style.display = 'none';
     }
 
-    // Close the modal when the user clicks anywhere outside of the modal content
     window.onclick = function(event) {
         if (event.target === modal) {
             modal.style.display = 'none';

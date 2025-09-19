@@ -1,4 +1,4 @@
-
+/* General Styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,11 +8,11 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: white;
+    background-color: #f8f9fa;
     color: #333;
 }
 
-
+/* Header & Navigation */
 header {
     background-color: #007bff;
     color: #fff;
@@ -64,7 +64,7 @@ nav {
     cursor: pointer;
 }
 
-
+/* Main Content & Sections */
 main {
     max-width: 1200px;
     margin: 2rem auto;
@@ -85,9 +85,9 @@ section {
     margin-bottom: 2rem;
 }
 
-
+/* Hero Section */
 .hero-section {
-    background-color: #333 no-repeat center center/cover;
+    background:  no-repeat center center/cover;
     height: 60vh;
     display: flex;
     align-items: center;
@@ -128,7 +128,7 @@ section {
     background-color: #e2e6ea;
 }
 
-
+/* Cards & Grids */
 .about-grid, .services-list, .pricing-grid {
     display: grid;
     gap: 1.5rem;
@@ -175,7 +175,7 @@ section {
     box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
 }
 
-
+/* Form Styles */
 .form-group {
     margin-bottom: 1rem;
 }
@@ -231,7 +231,7 @@ section {
     display: none;
 }
 
-
+/* Footer */
 footer {
     text-align: center;
     padding: 1rem 0;
@@ -242,23 +242,23 @@ footer {
 
 /* Modal Styles */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1001; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1001;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 80%;
     max-width: 500px;
     border-radius: 8px;
     position: relative;
@@ -296,16 +296,21 @@ footer {
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
-
+/* Responsive Design FIXES */
 @media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 1rem;
+    }
+
     .nav-links {
         display: none;
         flex-direction: column;
         width: 100%;
         background-color: #0056b3;
-        position: absolute;
-        top: 60px;
-        left: 0;
+        position: static;
+        margin-top: 1rem;
     }
 
     .nav-links.active {
@@ -315,15 +320,36 @@ footer {
     .nav-links li {
         text-align: center;
         width: 100%;
-        padding: 1rem 0;
+        padding: 0.5rem 0;
         border-bottom: 1px solid #004085;
     }
 
     .mobile-menu-toggle {
         display: block;
+        align-self: flex-end;
+    }
+
+    main {
+        padding: 0 1rem;
+    }
+
+    section {
+        padding: 1.5rem;
     }
 
     .hero-content h1 {
         font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .about-grid, .services-list, .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-card.featured {
+        transform: none;
     }
 }
